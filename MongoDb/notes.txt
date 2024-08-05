@@ -1,0 +1,58 @@
+-- ./mongod --help command
+    To check for all commands of mongo
+
+-- Just like in SQL we have database with tables having rows , cols
+    Mongo has database having Collections with documents
+
+-- Mongo gives documents a unique id
+
+-- Commands:
+    show dbs : Show all the databases
+    use employees : use employees database
+
+    //Create function
+    db.inventory.insertOne() To insert a single document
+    db.inventory.insertMany()
+
+    //Read function
+    db.inventory.find() : fetch all documents
+    db.inventory.find({}) : Just like Select * from table of SQL
+    db.inventory.find({qty:90})
+
+    db.inventory.find({ status : { $in : ["A","D"]}})
+
+    //And
+    db.inventory.find( { status : "A" , qty: { $lt:30 } } )
+
+    //Or
+    db.inventory.find({$or : [ { status : "A" } , { qty: {$lt:30} } ] } )
+
+    db.inventory.findOne( { status : "A" , qty: { $lt:30 } } ) //this returns document not an array like find
+
+    //Updating
+    updateOne , updateMany , replaceOne
+    findOneAndReplace : selects and replaces with a new document
+
+    //Delete
+    db.inventory.deleteMany({})
+    db.inventory.deleteOne({})
+
+    //Sort
+    db.inventory.find().sort()
+    db.inventory.find().skip(1) : leaves out first document
+    db.inventory.find().sort({qty:-1}) : descending order mai sort krega
+    db.inventory.find().limit(2) : limits no. of documents to 2
+    Used in pagination , to show specific pages' blogs (example)
+
+    MongoDB atlas : Mongo Database on cloud
+    No need to deploy on your local machine
+
+    Operators:
+    Query and Projection Operators
+
+    Aggregation Pipeline : 
+    Can match and group documents based on properties
+    
+    
+    
+
